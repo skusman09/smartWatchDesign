@@ -10,15 +10,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    150deg,
-    rgba(5, 5, 5, 0.769),
-    rgb(203, 198, 198),
-    rgba(0, 0, 0, 0.806)
-  );
+  background: linear-gradient(150deg,
+      rgba(5, 5, 5, 0.769),
+      rgb(203, 198, 198),
+      rgba(0, 0, 0, 0.806));
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+:root {
+  /* Light theme (default) */
+  --bg-color: #f0f0f0;
+  --text-color: #111;
+}
+
+body.light {
+  --bg-color: #f0f0f0;
+  --text-color: #111;
+}
+
+body.dark {
+  --bg-color: #222;
+  --text-color: #eee;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .bigbox {
@@ -34,12 +67,10 @@ body {
   border-radius: 90px;
   box-shadow: inset 0px 0px 20px 2px rgb(0, 0, 0),
     inset 0px 0px 40px 8px rgb(0, 0, 0);
-  background: linear-gradient(
-    220deg,
-    rgb(255, 255, 255),
-    rgb(153, 149, 149),
-    rgb(255, 255, 255)
-  );
+  background: linear-gradient(220deg,
+      rgb(255, 255, 255),
+      rgb(153, 149, 149),
+      rgb(255, 255, 255));
   height: 23rem;
   width: 21rem;
   display: flex;
@@ -237,11 +268,9 @@ body {
   display: grid;
   height: 1rem;
   width: 1.3rem;
-  background: linear-gradient(
-    270deg,
-    rgba(191, 201, 201, 0.719),
-    rgb(37, 46, 47) 80%
-  );
+  background: linear-gradient(270deg,
+      rgba(191, 201, 201, 0.719),
+      rgb(37, 46, 47) 80%);
   box-shadow: inset 0 0 1px 1px rgb(50, 50, 50),
     inset 0 0 1px 2px rgba(255, 255, 255, 0.694);
   z-index: 10;
@@ -423,12 +452,10 @@ body {
 
 .bandholder {
   position: absolute;
-  background: linear-gradient(
-    270deg,
-    rgb(252, 252, 252),
-    black 8%,
-    rgb(105, 103, 103) 200%
-  );
+  background: linear-gradient(270deg,
+      rgb(252, 252, 252),
+      black 8%,
+      rgb(105, 103, 103) 200%);
   box-shadow: 0px -2px 1px 1px black, inset 10px 1px 5px 2px rgb(0, 0, 0),
     inset -10px 5px 10px 4px rgb(34, 34, 34);
   height: 3rem;
@@ -507,11 +534,9 @@ body {
   position: absolute;
   height: 7.65rem;
   width: 1rem;
-  background: radial-gradient(
-    rgb(125, 124, 124),
-    rgb(16, 16, 16),
-    rgb(12, 12, 12)
-  );
+  background: radial-gradient(rgb(125, 124, 124),
+      rgb(16, 16, 16),
+      rgb(12, 12, 12));
   top: -10.6rem;
   left: 9.9rem;
   border-radius: 0 0 0px 0px;

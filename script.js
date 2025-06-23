@@ -23,6 +23,23 @@
         s = 6deg
         */
 
+// Apply a given theme by toggling body classes
+function applyTheme(theme) {
+  document.body.classList.remove('light', 'dark');
+  document.body.classList.add(theme);
+}
+
+// On load, read saved theme or default to light
+const saved = localStorage.getItem('watchTheme') || 'light';
+applyTheme(saved);
+
+// Wire up the toggle button
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  const next = document.body.classList.contains('light') ? 'dark' : 'light';
+  applyTheme(next);
+  localStorage.setItem('watchTheme', next);
+});
+
 setInterval(() => {
   let hr = document.getElementById("hr");
   let mnt = document.getElementById("mnt");
