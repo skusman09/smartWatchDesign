@@ -24,21 +24,43 @@
         */
 
 // Apply a given theme by toggling body classes
-function applyTheme(theme) {
-  document.body.classList.remove('light', 'dark');
-  document.body.classList.add(theme);
+// function applyTheme(theme) {
+//   document.body.classList.remove('light', 'dark');
+//   document.body.classList.add(theme);
+// }
+
+// // On load, read saved theme or default to light
+// const saved = localStorage.getItem('watchTheme') || 'light';
+// applyTheme(saved);
+
+// // Wire up the toggle button
+// document.getElementById('theme-toggle').addEventListener('click', () => {
+//   const next = document.body.classList.contains('light') ? 'dark' : 'light';
+//   applyTheme(next);
+//   localStorage.setItem('watchTheme', next);
+// });
+
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+
+// On load, check for saved theme in localStorage
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  body.className = savedTheme;
+  toggleBtn.textContent = savedTheme === "dark" ? "🌞" : "🌚";
 }
 
-// On load, read saved theme or default to light
-const saved = localStorage.getItem('watchTheme') || 'light';
-applyTheme(saved);
+toggleBtn.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark");
+  body.classList.toggle("light", !isDark);
 
-// Wire up the toggle button
-document.getElementById('theme-toggle').addEventListener('click', () => {
-  const next = document.body.classList.contains('light') ? 'dark' : 'light';
-  applyTheme(next);
-  localStorage.setItem('watchTheme', next);
+  // Update icon
+  toggleBtn.textContent = isDark ? "🌞" : "🌚";
+
+  // Save preference
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
+
 
 setInterval(() => {
   let hr = document.getElementById("hr");
